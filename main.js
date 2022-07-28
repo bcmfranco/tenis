@@ -1,8 +1,32 @@
 // Helper vars
 var hits = [0, 0]; // Golpes del dado
 var game_score = [0, 0]; // Score del game
+var set_score = [];
+var match_score = {
+    'game_score' : game_score,
+    'set_score': set_score
+}
+var current_set = 1;
 
 // Helper functions
+function reset_game_score(){
+    game_score = [0, 0];
+    $$('game_score').set('0 - 0');
+    reset_hits();
+
+    return game_score;
+}
+
+function add_set(defender){
+
+    set_score.push(game_score);
+    reset_game_score();
+
+    console.log(set_score);
+    return set_score;
+
+}
+
 function reset_hits(){ // Reset hits to 1,1 and its ux
     
     hits = [0, 0];
@@ -16,10 +40,13 @@ function add_point(defender){ // Add point to defender player
 
     $$('#game_score').set('html', '');
 
-    if(defender == 0){
-        game_score[0] = game_score[0]+15;
+    var current_point = game_score[defender]+15;
+
+    if(current_point > 30){
+        game_score[defender] = current_point;
+        add_set(defender);
     } else {
-        game_score[1] = game_score[1]+15; 
+        game_score[defender] = current_point;
     }
 
     setTimeout(function(){
