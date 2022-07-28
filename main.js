@@ -3,16 +3,16 @@ var hits = [1, 1];
 var board = [0, 0];
 
 // Helper functions
-function reset_hits(){
+function reset_hits(){ // Reset hits to 1,1 and its ux
     
     hits = [1, 1];
     $$('.roll').set('html', 1);
-    $$('.dice').set('html', 1);
+    $$('.dice').set('html', '');
 
     return hits;
 }
 
-function add_point(defender){
+function add_point(defender){ // Add point to defender player
 
     if(defender == 0){
         board[0] = board[0]+15;
@@ -24,7 +24,6 @@ function add_point(defender){
     reset_hits();
 
     return hits;
-
 }
 
 
@@ -46,7 +45,7 @@ function roll_dice(attacker){ // Tira el dado y empuja el array hacia la izquier
     var diff = hits[1] - hits[0];
 
     $$('#dice_'+attacker+'').set('html', diff);
-    $$('#dice_'+defender+'').set('html', 'x');
+    $$('#dice_'+defender+'').set('html', '');
 
     if(diff < 0){
         add_point(defender);
