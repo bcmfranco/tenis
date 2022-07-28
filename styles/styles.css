@@ -1,0 +1,32 @@
+#board{
+    height: 50px;
+    margin: 10px 0px;
+}
+
+#playground{
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+#playground .dices{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.roll {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.roll, .dice {
+    border: 1px solid var(--filling);
+    margin: 3px auto;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+}

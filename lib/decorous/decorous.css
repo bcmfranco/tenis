@@ -12,21 +12,21 @@ h1, h2, h3, h4, h5, h6{
 /* VARS */
 
 .ligth_back{
-    background-color: var(--light_back);
+    background-color: var(--back);
     color: var(--light_fonts);
 }
 
 .dark_back{
-    background-color: var(--light_fonts);
-    color: var(--light_back);
+    background-color: var(--fonts);
+    color: var(--back);
 }
 
 .light_borders{
-    border: 1px solid var(--light_borders);
+    border: 1px solid var(--borders);
 }
 
 .dark_borders{
-    border: 1px solid var(--light_back);
+    border: 1px solid var(--back);
 }
 
 :root {
