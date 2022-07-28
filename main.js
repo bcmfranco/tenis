@@ -1,11 +1,11 @@
 // Helper vars
-var hits = [1, 1];
-var board = [0, 0];
+var hits = [0, 0]; // Golpes del dado
+var game_score = [0, 0]; // Score del game
 
 // Helper functions
 function reset_hits(){ // Reset hits to 1,1 and its ux
     
-    hits = [1, 1];
+    hits = [0, 0];
     $$('.roll').set('html', 1);
     $$('.dice').set('html', '');
 
@@ -17,13 +17,13 @@ function add_point(defender){ // Add point to defender player
     $$('#game_score').set('html', '');
 
     if(defender == 0){
-        board[0] = board[0]+15;
+        game_score[0] = game_score[0]+15;
     } else {
-        board[1] = board[1]+15; 
+        game_score[1] = game_score[1]+15; 
     }
 
     setTimeout(function(){
-        $$('#game_score').set('html', board[0]+"-"+board[1]);
+        $$('#game_score').set('html', game_score[0]+"-"+game_score[1]);
     }, 1200);
 
     reset_hits();
