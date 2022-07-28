@@ -23,11 +23,13 @@
     font-size: 30px;
 }
 
-#score{
+#game_score{
     background-color: var(--fonts);
     color: var(--back);
     width: 50%;
     margin: auto;
+    border: 1px solid var(--fonts);
+    height: 100%;
 }
 
 .roll {

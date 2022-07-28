@@ -14,9 +14,7 @@ function reset_hits(){ // Reset hits to 1,1 and its ux
 
 function add_point(defender){ // Add point to defender player
 
-    setTimeout(function(){
-        $$('#score').set('html', '');
-    }, 500);
+    $$('#game_score').set('html', '');
 
     if(defender == 0){
         board[0] = board[0]+15;
@@ -25,8 +23,8 @@ function add_point(defender){ // Add point to defender player
     }
 
     setTimeout(function(){
-        $$('#score').set('html', board[0]+"-"+board[1]);
-    }, 1000);
+        $$('#game_score').set('html', board[0]+"-"+board[1]);
+    }, 1200);
 
     reset_hits();
 
