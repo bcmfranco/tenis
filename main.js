@@ -1,69 +1,48 @@
 // Helper vars
-var roll_1 = 1;
-var roll_2 = 1;
-var powers = [1, 1];
+var hits = [1, 1]
 
 // Helper functions
-function roll_dice(attacker){
+function add_point(defender){
 
-    var roll_value = Math.floor(6*Math.random())+1;
+    console.log(defender);
 
-    if(attacker==0){
-        powers[0] = roll_value;
-    } else {
-        powers[1] = roll_value;
-    }
-
-    return powers;
 }
 
-// function new_attack(attacker){
 
-//     var hit = Math.floor(6*Math.random())+1;
+function roll_dice(attacker){ // Tira el dado y empuja el array hacia la izquierda
+    
+    hits.shift();
+    var new_hit = Math.floor(6*Math.random())+1;
+    hits.push(new_hit)
 
-//     if(attacker==0){
-//         var last_rolled = powers[1];
-//     } else {
-//         var last_rolled = powers[0];
-//     }
+    if(attacker==0){
+        var defender = 1;
+    } else {
+        var defender = 0;
+    }
 
-//     var diff = hit - last_rolled;
+    $$('#roll_'+attacker+'').set('html', hits[1]);
+    $$('#tale').set('html', hits[0]+"-"+hits[1]);
 
-//     // console.log(powers);
-//     // console.log("last", last_rolled);
-//     // console.log("hit", hit);
-//     // console.log("diff", diff);
+    var diff = hits[1] - hits[0];
 
-//     if(diff>0){
-//         powers[attacker] = diff;
-//         var attack_result = true;
-//     } else {
-//         powers = [1, 1];
-//         var attack_result = false;
-//     }
+    $$('#dice_'+attacker+'').set('html', diff);
+    $$('#dice_'+defender+'').set('html', 'x');
 
-//     return [
-//         attack_result,
-//         powers
-//     ]
+    if(diff < 0){
+        add_point(defender);
+    }
 
-// }
-
+    return hits;
+}
 
 
 // Events
 $$('.roll').addEvent('click', function(event){
     var attacker = event.target.id.split("roll_")[1];
-
-    // console.log(attacker);
-    // console.log(powers[0]);
-
     roll_dice(attacker);
-    $$('#roll_'+attacker+'').set('html', powers[attacker]);
 
-    // new_attack(attacker);
 
-})
-
+});   
 
 // Course
