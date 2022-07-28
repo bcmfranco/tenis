@@ -52,7 +52,7 @@ function roll_dice(attacker){ // Tira el dado y empuja el array hacia la izquier
     $$('#dice_'+attacker+'').set('html', diff);
     $$('#dice_'+defender+'').set('html', '');
 
-    if(diff < 0){
+    if(diff < 1){
         add_point(defender);
     }
 
