@@ -16,6 +16,20 @@
     grid-template-rows: 1fr;
 }
 
+#board{
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+#score{
+    background-color: var(--fonts);
+    color: var(--back);
+    width: 50%;
+    margin: auto;
+}
+
 .roll {
     font-size: 20px;
     cursor: pointer;

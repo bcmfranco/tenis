@@ -1,10 +1,29 @@
 // Helper vars
-var hits = [1, 1]
+var hits = [1, 1];
+var board = [0, 0];
 
 // Helper functions
+function reset_hits(){
+    
+    hits = [1, 1];
+    $$('.roll').set('html', 1);
+    $$('.dice').set('html', 1);
+
+    return hits;
+}
+
 function add_point(defender){
 
-    console.log(defender);
+    if(defender == 0){
+        board[0] = board[0]+15;
+    } else {
+        board[1] = board[1]+15; 
+    }
+
+    $$('#score').set('html', board[0]+"-"+board[1]);
+    reset_hits();
+
+    return hits;
 
 }
 
